@@ -9,7 +9,12 @@ import Paper from "@material-ui/core/Paper";
 
 /* START MY VIEWS IMPORT */
 
+import LineDetailEdit from "./pages/LineDetailEdit";
+import LineDetailList from "./pages/LineDetailList";
+import PurchaseOrderEdit from "./pages/PurchaseOrderEdit";
 import PurchaseOrderList from "./pages/PurchaseOrderList";
+import WebOrderLevelEdit from "./pages/WebOrderLevelEdit";
+import WebOrderLevelList from "./pages/WebOrderLevelList";
 
 /* END MY VIEWS IMPORT */
 
@@ -39,7 +44,12 @@ class Routes extends Component {
 
               {/* START MY VIEWS */}
 
+              <PrivateRoute exact path="/linedetails/:id" component={ LineDetailEdit }  />
+              <PrivateRoute exact path="/linedetails" component={ LineDetailList }  />
+              <PrivateRoute exact path="/purchaseorders/:id" component={ PurchaseOrderEdit }  />
               <PrivateRoute exact path="/purchaseorders" component={ PurchaseOrderList }  />
+              <PrivateRoute exact path="/weborderlevels/:id" component={ WebOrderLevelEdit }  />
+              <PrivateRoute exact path="/weborderlevels" component={ WebOrderLevelList }  />
 
              {/* END MY VIEWS */}
 

@@ -1,7 +1,13 @@
 import { combineReducers } from "redux";
 
 // START IMPORT REDUCERS
+import HomeReducer from "./HomeReducer";
+import LineDetailEditReducer from "./LineDetailEditReducer";
+import LineDetailListReducer from "./LineDetailListReducer";
+import PurchaseOrderEditReducer from "./PurchaseOrderEditReducer";
 import PurchaseOrderListReducer from "./PurchaseOrderListReducer";
+import WebOrderLevelEditReducer from "./WebOrderLevelEditReducer";
+import WebOrderLevelListReducer from "./WebOrderLevelListReducer";
 
 // END IMPORT REDUCERS
 
@@ -21,7 +27,13 @@ const rootReducer = combineReducers({
   UserListReducer,
 
   // START COMBINE REDUCERS
+	HomeReducer,
+	LineDetailEditReducer,
+	LineDetailListReducer,
+	PurchaseOrderEditReducer,
 	PurchaseOrderListReducer,
+	WebOrderLevelEditReducer,
+	WebOrderLevelListReducer,
  // END COMBINE REDUCERS
 
 });

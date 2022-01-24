@@ -14,11 +14,9 @@ export default function PurchaseOrderListReducer(state = initialState, action) {
 
 
     // START REDUCERS
-    case types.LIST_PURCHASEORDER_SUCCESS:
-      return { ...state, listPurchaseOrder: action.payload };
     case types.DELETE_PURCHASEORDER_SUCCESS:
       return { ...state, purchaseorder: action.payload };
-    case types.FINDBYPONUMBER_PURCHASEORDER_SUCCESS:
+    case types.LIST_PURCHASEORDER_SUCCESS:
       return { ...state, listPurchaseOrder: action.payload };
      // END REDUCERS
     

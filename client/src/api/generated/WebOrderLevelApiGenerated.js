@@ -26,6 +26,84 @@ class WebOrderLevelApiGenerated {
 
   // CRUD METHODS
 
+  /**
+  * WebOrderLevelService.create
+  *   @description CRUD ACTION create
+  *
+  */
+  static createWebOrderLevel(weborderlevel) {
+    return axios.post(WebOrderLevelApiGenerated.contextUrl, weborderlevel )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * WebOrderLevelService.delete
+  *   @description CRUD ACTION delete
+  *   @param ObjectId id Id
+  *
+  */
+  static deleteWebOrderLevel(id) {
+    return axios.delete(WebOrderLevelApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * WebOrderLevelService.get
+  *   @description CRUD ACTION get
+  *   @param ObjectId id Id resource
+  *
+  */
+  static getOneWebOrderLevel(id) {
+    return axios.get(WebOrderLevelApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * WebOrderLevelService.list
+  *   @description CRUD ACTION list
+  *
+  */
+  static getWebOrderLevelList() {
+    return axios.get(WebOrderLevelApiGenerated.contextUrl)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * WebOrderLevelService.update
+  *   @description CRUD ACTION update
+  *   @param ObjectId id Id
+  *
+  */
+  static saveWebOrderLevel(weborderlevel) {
+    return axios.post(WebOrderLevelApiGenerated.contextUrl + "/" + weborderlevel._id, weborderlevel )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
 
 
     // Custom APIs

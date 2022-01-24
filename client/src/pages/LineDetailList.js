@@ -23,25 +23,25 @@ import EnhancedTable from "../components/EnhancedTable";
 
 
 // START IMPORT ACTIONS
-import PurchaseOrderActions from "../redux/actions/PurchaseOrderActions";
+import LineDetailActions from "../redux/actions/LineDetailActions";
 
 // END IMPORT ACTIONS
 
 /** APIs
 
-* actionsPurchaseOrder.delete
+* actionsLineDetail.delete
 *	@description CRUD ACTION delete
-*	@param ObjectId id - Id PurchaseOrder
+*	@param ObjectId id - Id LineDetail
 *
-* actionsPurchaseOrder.list
+* actionsLineDetail.list
 *	@description CRUD ACTION list
-*	@returns ARRAY OF PurchaseOrder
+*	@returns ARRAY OF LineDetail
 *
 
 **/
 
 
-class PurchaseOrderList extends Component {
+class LineDetailList extends Component {
   // Init component
   constructor(props) {
     super(props);
@@ -52,7 +52,7 @@ class PurchaseOrderList extends Component {
 
   // Load data on start
   componentWillMount() {
-    this.props.actionsPurchaseOrder.loadPurchaseOrderList();
+    this.props.actionsLineDetail.loadLineDetailList();
   }
 
   // Delete data
@@ -65,31 +65,21 @@ class PurchaseOrderList extends Component {
   }
 
   confirmDialogDelete(id) {
-    this.props.actionsPurchaseOrder.deletePurchaseOrder(this.state.idDelete).then(data => {
-      this.props.actionsPurchaseOrder.loadPurchaseOrderList();
+    this.props.actionsLineDetail.deleteLineDetail(this.state.idDelete).then(data => {
+      this.props.actionsLineDetail.loadLineDetailList();
       this.setState({ openDialogDelete: false, idDelete: null });
     });
   }
 
   // Show content
   render() {
-    const columns = [ 
-      {
-        id: "Name",
-        type: "string",
-        label: "Name"
-      }, 
-      {
-        id: "PoNumber",
-        type: "string",
-        label: "PoNumber"
-      },
+    const columns = [
     ];
-    const link = "/purchaseorders/";
+    const link = "/linedetails/";
 
     return (
       <div>
-        <h1>PurchaseOrder List</h1>
+        <h1>LineDetail List</h1>
 
         <EnhancedTable
           data={this.props.list}
@@ -109,20 +99,16 @@ class PurchaseOrderList extends Component {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">PoNumber</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.props.list.map(row => (
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">
-                  <Link to={"/purchaseorders/" + row._id} key={row._id}>
+                  <Link to={"/linedetails/" + row._id} key={row._id}>
                     {row._id}
                   </Link>
                 </TableCell>
-                <TableCell align="right">{ row.Name }</TableCell>
-                <TableCell align="right">{ row.PoNumber }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -130,7 +116,7 @@ class PurchaseOrderList extends Component {
         */}
 
         <div className="footer-card">
-          <Link to="/purchaseorders/new">
+          <Link to="/linedetails/new">
             <Button variant="contained" color="primary">
               Add
             </Button>
@@ -144,23 +130,23 @@ class PurchaseOrderList extends Component {
 // Store actions
 const mapDispatchToProps = function(dispatch) {
   return { 
-    actionsPurchaseOrder: bindActionCreators(PurchaseOrderActions, dispatch),
+    actionsLineDetail: bindActionCreators(LineDetailActions, dispatch),
   };
 };
 
 // Validate types
-PurchaseOrderList.propTypes = { 
-  actionsPurchaseOrder: PropTypes.object.isRequired,
+LineDetailList.propTypes = { 
+  actionsLineDetail: PropTypes.object.isRequired,
 };
 
 // Get props from state
 function mapStateToProps(state, ownProps) {
   return {
-    list: state.PurchaseOrderListReducer.listPurchaseOrder
+    list: state.LineDetailListReducer.listLineDetail
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PurchaseOrderList);
+)(LineDetailList);

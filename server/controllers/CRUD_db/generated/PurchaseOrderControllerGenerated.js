@@ -30,6 +30,8 @@ const generatedControllers = {
     router.post(baseUrl + "", authorize([]), PurchaseOrderController.create);
     router.delete(baseUrl + "/:id", authorize([]), PurchaseOrderController.delete);
     router.get(baseUrl + "/findByPoNumber/:key", authorize([]), PurchaseOrderController.findByPoNumber);
+    router.get(baseUrl + "/findBypo_lineDetails/:key", authorize([]), PurchaseOrderController.findBypo_lineDetails);
+    router.get(baseUrl + "/findBypo_webOrderLevel/:key", authorize([]), PurchaseOrderController.findBypo_webOrderLevel);
     router.get(baseUrl + "/:id", authorize([]), PurchaseOrderController.get);
     router.get(baseUrl + "/:id/getpo_lineDetails", authorize([]), PurchaseOrderController.getpo_lineDetails);
     router.get(baseUrl + "/:id/getpo_webOrderLevel", authorize([]), PurchaseOrderController.getpo_webOrderLevel);
@@ -82,6 +84,38 @@ const generatedControllers = {
   findByPoNumber: async (req, res) => {
     try {
       const result = await PurchaseOrderModel.findByPoNumber(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * PurchaseOrderModel.findBypo_lineDetails
+  *   @description CRUD ACTION findBypo_lineDetails
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findBypo_lineDetails: async (req, res) => {
+    try {
+      const result = await PurchaseOrderModel.findBypo_lineDetails(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * PurchaseOrderModel.findBypo_webOrderLevel
+  *   @description CRUD ACTION findBypo_webOrderLevel
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  findBypo_webOrderLevel: async (req, res) => {
+    try {
+      const result = await PurchaseOrderModel.findBypo_webOrderLevel(req.params.key);
       res.json(result);
     } catch (err) {
       const safeErr = ErrorManager.getSafeError(err);

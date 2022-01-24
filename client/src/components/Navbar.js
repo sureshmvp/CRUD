@@ -92,12 +92,28 @@ class Navbar extends React.Component {
         <List>
           {/* START LINK MENU */}
             
+           <Link to="/linedetails">
+            <ListItem button key="LineDetail">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="LineDetail" />
+            </ListItem>
+          </Link>{" "}            
            <Link to="/purchaseorders">
             <ListItem button key="PurchaseOrder">
               <ListItemIcon>
                 <ArrowForwardIos />
               </ListItemIcon>
               <ListItemText className="menu-text" primary="PurchaseOrder" />
+            </ListItem>
+          </Link>{" "}            
+           <Link to="/weborderlevels">
+            <ListItem button key="WebOrderLevel">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="WebOrderLevel" />
             </ListItem>
           </Link>{" "} {/* END LINK MENU */}
         </List>

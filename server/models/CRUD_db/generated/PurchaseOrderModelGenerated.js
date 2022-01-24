@@ -61,6 +61,26 @@ const generatedModel = {
   },
   
   /**
+  * PurchaseOrderModel.findBypo_lineDetails
+  *   @description CRUD ACTION findBypo_lineDetails
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findBypo_lineDetails(key) {
+    return await Database.getConnection().models.PurchaseOrder.findAll({ where: { "po_lineDetails": key } });
+  },
+  
+  /**
+  * PurchaseOrderModel.findBypo_webOrderLevel
+  *   @description CRUD ACTION findBypo_webOrderLevel
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  async findBypo_webOrderLevel(key) {
+    return await Database.getConnection().models.PurchaseOrder.findAll({ where: { "po_webOrderLevel": key } });
+  },
+  
+  /**
   * PurchaseOrderModel.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id PurchaseOrder

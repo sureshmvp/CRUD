@@ -23,25 +23,24 @@ import EnhancedTable from "../components/EnhancedTable";
 
 
 // START IMPORT ACTIONS
-import PurchaseOrderActions from "../redux/actions/PurchaseOrderActions";
+import WebOrderLevelActions from "../redux/actions/WebOrderLevelActions";
 
 // END IMPORT ACTIONS
 
 /** APIs
 
-* actionsPurchaseOrder.delete
+* actionsWebOrderLevel.delete
 *	@description CRUD ACTION delete
-*	@param ObjectId id - Id PurchaseOrder
+*	@param ObjectId id - Id
 *
-* actionsPurchaseOrder.list
+* actionsWebOrderLevel.list
 *	@description CRUD ACTION list
-*	@returns ARRAY OF PurchaseOrder
 *
 
 **/
 
 
-class PurchaseOrderList extends Component {
+class WebOrderLevelList extends Component {
   // Init component
   constructor(props) {
     super(props);
@@ -52,7 +51,7 @@ class PurchaseOrderList extends Component {
 
   // Load data on start
   componentWillMount() {
-    this.props.actionsPurchaseOrder.loadPurchaseOrderList();
+    this.props.actionsWebOrderLevel.loadWebOrderLevelList();
   }
 
   // Delete data
@@ -65,31 +64,21 @@ class PurchaseOrderList extends Component {
   }
 
   confirmDialogDelete(id) {
-    this.props.actionsPurchaseOrder.deletePurchaseOrder(this.state.idDelete).then(data => {
-      this.props.actionsPurchaseOrder.loadPurchaseOrderList();
+    this.props.actionsWebOrderLevel.deleteWebOrderLevel(this.state.idDelete).then(data => {
+      this.props.actionsWebOrderLevel.loadWebOrderLevelList();
       this.setState({ openDialogDelete: false, idDelete: null });
     });
   }
 
   // Show content
   render() {
-    const columns = [ 
-      {
-        id: "Name",
-        type: "string",
-        label: "Name"
-      }, 
-      {
-        id: "PoNumber",
-        type: "string",
-        label: "PoNumber"
-      },
+    const columns = [
     ];
-    const link = "/purchaseorders/";
+    const link = "/weborderlevels/";
 
     return (
       <div>
-        <h1>PurchaseOrder List</h1>
+        <h1>WebOrderLevel List</h1>
 
         <EnhancedTable
           data={this.props.list}
@@ -109,20 +98,16 @@ class PurchaseOrderList extends Component {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">PoNumber</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.props.list.map(row => (
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">
-                  <Link to={"/purchaseorders/" + row._id} key={row._id}>
+                  <Link to={"/weborderlevels/" + row._id} key={row._id}>
                     {row._id}
                   </Link>
                 </TableCell>
-                <TableCell align="right">{ row.Name }</TableCell>
-                <TableCell align="right">{ row.PoNumber }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -130,7 +115,7 @@ class PurchaseOrderList extends Component {
         */}
 
         <div className="footer-card">
-          <Link to="/purchaseorders/new">
+          <Link to="/weborderlevels/new">
             <Button variant="contained" color="primary">
               Add
             </Button>
@@ -144,23 +129,23 @@ class PurchaseOrderList extends Component {
 // Store actions
 const mapDispatchToProps = function(dispatch) {
   return { 
-    actionsPurchaseOrder: bindActionCreators(PurchaseOrderActions, dispatch),
+    actionsWebOrderLevel: bindActionCreators(WebOrderLevelActions, dispatch),
   };
 };
 
 // Validate types
-PurchaseOrderList.propTypes = { 
-  actionsPurchaseOrder: PropTypes.object.isRequired,
+WebOrderLevelList.propTypes = { 
+  actionsWebOrderLevel: PropTypes.object.isRequired,
 };
 
 // Get props from state
 function mapStateToProps(state, ownProps) {
   return {
-    list: state.PurchaseOrderListReducer.listPurchaseOrder
+    list: state.WebOrderLevelListReducer.listWebOrderLevel
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PurchaseOrderList);
+)(WebOrderLevelList);

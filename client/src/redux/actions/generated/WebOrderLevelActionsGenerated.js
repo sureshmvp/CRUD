@@ -23,6 +23,100 @@ let actionsFunction = {
 
   //CRUD METHODS
 
+  // Create weborderlevel
+  createWebOrderLevel: function(weborderlevel) {
+    return function(dispatch) {
+      return WebOrderLevelApi
+        .createWebOrderLevel(weborderlevel)
+        .then(weborderlevel => {
+          dispatch(actionsFunction.createWebOrderLevelSuccess(weborderlevel));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  createWebOrderLevelSuccess: function(weborderlevel) {
+    return { type: types.CREATE_WEBORDERLEVEL_SUCCESS, payload: weborderlevel };
+  },
+
+
+  // Delete weborderlevel
+  deleteWebOrderLevel: function(id) {
+    return function(dispatch) {
+      return WebOrderLevelApi
+        .deleteWebOrderLevel(id)
+        .then(weborderlevel => {
+          dispatch(actionsFunction.deleteWebOrderLevelSuccess(weborderlevel));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  deleteWebOrderLevelSuccess: function(weborderlevel) {
+    return { type: types.DELETE_WEBORDERLEVEL_SUCCESS, payload: weborderlevel };
+  },
+
+
+  // Get weborderlevel
+  loadWebOrderLevel: function(id) {
+    return function(dispatch) {
+      return WebOrderLevelApi
+        .getOneWebOrderLevel(id)
+        .then(weborderlevel => {
+          dispatch(actionsFunction.loadWebOrderLevelSuccess(weborderlevel));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadWebOrderLevelSuccess: function(weborderlevel) {
+    return { type: types.GET_WEBORDERLEVEL_SUCCESS, payload: weborderlevel };
+  },
+
+  // Load  list
+  loadWebOrderLevelList: function() {
+    return function(dispatch) {
+      return WebOrderLevelApi
+        .getWebOrderLevelList()
+        .then(list => {
+          dispatch(actionsFunction.loadWebOrderLevelListSuccess(list));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadWebOrderLevelListSuccess: function(list) {
+    return { type: types.LIST_WEBORDERLEVEL_SUCCESS, payload: list };
+  },
+
+	
+  // Save weborderlevel
+  saveWebOrderLevel: function(weborderlevel) {
+    return function(dispatch) {
+      return WebOrderLevelApi
+        .saveWebOrderLevel(weborderlevel)
+        .then(weborderlevel => {
+          dispatch(actionsFunction.saveWebOrderLevelSuccess(weborderlevel));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  saveWebOrderLevelSuccess: function(weborderlevel) {
+    return { type: types.UPDATE_WEBORDERLEVEL_SUCCESS, payload: weborderlevel };
+  },
+
+
 };
 
 export default actionsFunction;

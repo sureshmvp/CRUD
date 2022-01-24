@@ -80,6 +80,44 @@ let actionsFunction = {
   },
 
 
+  // Find by po_lineDetails
+  findBypo_lineDetails: function(key) {
+    return function(dispatch) {
+      return PurchaseOrderApi
+        .findBypo_lineDetails(key)
+        .then(item => {
+          dispatch(actionsFunction.findBypo_lineDetailsSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findBypo_lineDetailsSuccess: function(item) {
+    return { type: types.FINDBYPO_LINEDETAILS_PURCHASEORDER_SUCCESS, payload: item };
+  },
+
+
+  // Find by po_webOrderLevel
+  findBypo_webOrderLevel: function(key) {
+    return function(dispatch) {
+      return PurchaseOrderApi
+        .findBypo_webOrderLevel(key)
+        .then(item => {
+          dispatch(actionsFunction.findBypo_webOrderLevelSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findBypo_webOrderLevelSuccess: function(item) {
+    return { type: types.FINDBYPO_WEBORDERLEVEL_PURCHASEORDER_SUCCESS, payload: item };
+  },
+
+
   // Get purchaseorder
   loadPurchaseOrder: function(id) {
     return function(dispatch) {

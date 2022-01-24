@@ -75,6 +75,38 @@ class PurchaseOrderApiGenerated {
   }
 
   /**
+  * PurchaseOrderService.findBypo_lineDetails
+  *   @description CRUD ACTION findBypo_lineDetails
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findBypo_lineDetails(id) {
+    return axios.get(PurchaseOrderApiGenerated.contextUrl + "/findBypo_lineDetails/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * PurchaseOrderService.findBypo_webOrderLevel
+  *   @description CRUD ACTION findBypo_webOrderLevel
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findBypo_webOrderLevel(id) {
+    return axios.get(PurchaseOrderApiGenerated.contextUrl + "/findBypo_webOrderLevel/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * PurchaseOrderService.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id PurchaseOrder

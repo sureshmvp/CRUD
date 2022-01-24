@@ -30,6 +30,58 @@ const generatedModel = {
   // CRUD METHODS
 
 
+  /**
+  * WebOrderLevelModel.create
+  *   @description CRUD ACTION create
+  *
+  */
+  async create(item) {
+    let result = await Database.getConnection().models.WebOrderLevel.create(item);    return result;
+  },
+  
+  /**
+  * WebOrderLevelModel.delete
+  *   @description CRUD ACTION delete
+  *   @param ObjectId id Id
+  *
+  */
+  async delete(id) {
+    return await Database.getConnection().models.WebOrderLevel.destroy({ where: { _id: id } });
+  },
+  
+  /**
+  * WebOrderLevelModel.get
+  *   @description CRUD ACTION get
+  *   @param ObjectId id Id resource
+  *
+  */
+  async get(id) {
+    let result = await Database.getConnection().models.WebOrderLevel.findByPk(id);
+    return result;
+  },
+  
+  /**
+  * WebOrderLevelModel.list
+  *   @description CRUD ACTION list
+  *
+  */
+  async list() { 
+    return await Database.getConnection().models.WebOrderLevel.findAll();
+      },
+  
+  /**
+  * WebOrderLevelModel.update
+  *   @description CRUD ACTION update
+  *   @param ObjectId id Id
+  *
+  */
+  async update(item) { 
+    let result = await Database.getConnection().models.WebOrderLevel.update(item, {
+      where: { _id: item._id }
+    });
+    return result;
+  },
+  
 
 
 };

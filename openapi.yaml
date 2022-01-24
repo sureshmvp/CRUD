@@ -423,6 +423,72 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/PurchaseOrder"
+  "/purchaseorder/findBypo_lineDetails/{key}":
+    get:
+      x-skaffolder-id: 61ef2fc1e8f1a8052f4808f3
+      x-skaffolder-name: findBypo_lineDetails
+      x-skaffolder-id-resource: 61ef269be8f1a8052f4808b1
+      x-skaffolder-resource: PurchaseOrder
+      x-skaffolder-crudAction: findBypo_lineDetails
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBypo_lineDetails
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBypo_lineDetails/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBypo_lineDetails
+      tags:
+        - PurchaseOrder
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PurchaseOrder"
+  "/purchaseorder/findBypo_webOrderLevel/{key}":
+    get:
+      x-skaffolder-id: 61ef2fb9e8f1a8052f4808ed
+      x-skaffolder-name: findBypo_webOrderLevel
+      x-skaffolder-id-resource: 61ef269be8f1a8052f4808b1
+      x-skaffolder-resource: PurchaseOrder
+      x-skaffolder-crudAction: findBypo_webOrderLevel
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBypo_webOrderLevel
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBypo_webOrderLevel/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBypo_webOrderLevel
+      tags:
+        - PurchaseOrder
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id of model to search for
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PurchaseOrder"
   "/purchaseorder/{id}/getpo_lineDetails":
     get:
       x-skaffolder-id: 61ef2759e8f1a8052f4808c7
@@ -656,6 +722,153 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/User"
+  /weborderlevel:
+    post:
+      x-skaffolder-id: 61ef2fb9e8f1a8052f4808e8
+      x-skaffolder-name: create
+      x-skaffolder-id-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-resource: WebOrderLevel
+      x-skaffolder-crudAction: create
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION create
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION create
+      tags:
+        - WebOrderLevel
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebOrderLevel"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+    get:
+      x-skaffolder-id: 61ef2fb0e8f1a8052f4808e5
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-resource: WebOrderLevel
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - WebOrderLevel
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WebOrderLevel"
+  "/weborderlevel/{id}":
+    delete:
+      x-skaffolder-id: 61ef2fb9e8f1a8052f4808f0
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-resource: WebOrderLevel
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - WebOrderLevel
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    get:
+      x-skaffolder-id: 61ef2fb9e8f1a8052f4808e9
+      x-skaffolder-name: get
+      x-skaffolder-id-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-resource: WebOrderLevel
+      x-skaffolder-crudAction: get
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION get
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION get
+      tags:
+        - WebOrderLevel
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id resource
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebOrderLevel"
+    post:
+      x-skaffolder-id: 61ef2fb9e8f1a8052f4808ea
+      x-skaffolder-name: update
+      x-skaffolder-id-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-resource: WebOrderLevel
+      x-skaffolder-crudAction: update
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION update
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION update
+      tags:
+        - WebOrderLevel
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebOrderLevel"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebOrderLevel"
 security:
   - bearerAuth: []
 components:
@@ -764,17 +977,93 @@ components:
     - x-skaffolder-id: 61ef2256e8f1a8052f48082f
       x-skaffolder-name: CRUD_db
   x-skaffolder-page:
+    - x-skaffolder-id: 61ef2fb0e8f1a8052f4808e6
+      x-skaffolder-name: Home
+      x-skaffolder-url: /home
+      x-skaffolder-template: 
+      x-skaffolder-resource: 
+      x-skaffolder-services: 
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 61ef2256e8f1a8052f480837
+        - 61ef2fb9e8f1a8052f4808ef
+        - 61ef2fc1e8f1a8052f4808f5
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61ef2fc0e8f1a8052f4808f2
+      x-skaffolder-name: LineDetailEdit
+      x-skaffolder-url: /linedetails/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 61ef26cbe8f1a8052f4808ba
+      x-skaffolder-services:
+        - 61ef27ffe8f1a8052f4808d2
+        - 61ef27fbe8f1a8052f4808d0
+        - 61ef27f2e8f1a8052f4808cd
+        - 61ef2fc1e8f1a8052f4808f3
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61ef2fc1e8f1a8052f4808f5
+      x-skaffolder-name: LineDetailList
+      x-skaffolder-url: /linedetails
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 61ef26cbe8f1a8052f4808ba
+      x-skaffolder-services:
+        - 61ef2804e8f1a8052f4808d4
+        - 61ef27f6e8f1a8052f4808cf
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 61ef2fc0e8f1a8052f4808f2
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61ef2fb0e8f1a8052f4808e4
+      x-skaffolder-name: PurchaseOrderEdit
+      x-skaffolder-url: /purchaseorders/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 61ef269be8f1a8052f4808b1
+      x-skaffolder-services:
+        - 61ef272ce8f1a8052f4808c1
+        - 61ef2727e8f1a8052f4808bf
+        - 61ef2713e8f1a8052f4808bc
+        - 61ef2fb0e8f1a8052f4808e5
+        - 61ef27f6e8f1a8052f4808cf
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
     - x-skaffolder-id: 61ef2256e8f1a8052f480837
       x-skaffolder-name: PurchaseOrderList
       x-skaffolder-url: /purchaseorders
       x-skaffolder-template: List_Crud
       x-skaffolder-resource: 61ef269be8f1a8052f4808b1
       x-skaffolder-services:
-        - 61ef2722e8f1a8052f4808be
         - 61ef2737e8f1a8052f4808c3
-        - 61ef274fe8f1a8052f4808c5
+        - 61ef2722e8f1a8052f4808be
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 61ef2fb0e8f1a8052f4808e4
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61ef2fb9e8f1a8052f4808e7
+      x-skaffolder-name: WebOrderLevelEdit
+      x-skaffolder-url: /weborderlevels/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-services:
+        - 61ef2fb9e8f1a8052f4808e8
+        - 61ef2fb9e8f1a8052f4808ea
+        - 61ef2fb9e8f1a8052f4808e9
+        - 61ef2fb9e8f1a8052f4808ed
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61ef2fb9e8f1a8052f4808ef
+      x-skaffolder-name: WebOrderLevelList
+      x-skaffolder-url: /weborderlevels
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 61ef26bae8f1a8052f4808b6
+      x-skaffolder-services:
+        - 61ef2fb9e8f1a8052f4808f0
+        - 61ef2fb0e8f1a8052f4808e5
+      x-skaffolder-nesteds: 
+      x-skaffolder-links:
+        - 61ef2fb9e8f1a8052f4808e7
       x-skaffolder-roles: []
   x-skaffolder-roles: 
     - x-skaffolder-id: 61ef2257e8f1a8052f48083a
